@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/art/backgrounds/back1/frame0014.png" type="Texture" id=1]
+[ext_resource path="res://assets/art/backgrounds/back1/frame0000.png" type="Texture" id=2]
+[ext_resource path="res://assets/art/backgrounds/back1/frame0012.png" type="Texture" id=4]
+[ext_resource path="res://assets/art/backgrounds/back1/frame0004.png" type="Texture" id=6]
+[ext_resource path="res://assets/scripts/movement.gd" type="Script" id=9]
+[ext_resource path="res://assets/art/backgrounds/back1/frame0008.png" type="Texture" id=15]
+[ext_resource path="res://assets/tscn/scenes/backgroundanim.gd" type="Script" id=19]
+[ext_resource path="res://assets/art/white.jpg" type="Texture" id=20]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 6 ), ExtResource( 15 ), ExtResource( 4 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 42.4487
+height = 164.399
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 3.08538, 10 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="background"]
+position = Vector2( 513.788, 285.064 )
+scale = Vector2( 1.94461, 2.14224 )
+texture = ExtResource( 20 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="background"]
+position = Vector2( 517.992, 301.041 )
+frames = SubResource( 3 )
+script = ExtResource( 19 )
+delay = 15
+
+[node name="TestCharacter" type="Node2D" parent="."]
+position = Vector2( 483.661, 388.909 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="TestCharacter"]
+script = ExtResource( 9 )
+jumpSpeed = 200.0
+fallSpeed = 350.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestCharacter/KinematicBody2D"]
+position = Vector2( 3.5676, 2.37842 )
+shape = SubResource( 1 )
+
+[node name="Ground" type="Node2D" parent="."]
+position = Vector2( -2.82837, 519.486 )
+scale = Vector2( 45.96, 8.32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
+scale = Vector2( 1.46823, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
+position = Vector2( 7.68465, 21.1676 )
+scale = Vector2( 3.06326, 2.02706 )
+shape = SubResource( 2 )

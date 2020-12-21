@@ -16,8 +16,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Recess Ruckus"
-run/main_scene="res://TestEnvironment.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://assets/tscn/scenes/TestEnvironment.tscn"
+config/icon="res://assets/art/icon.png"
 
 [input]
 
