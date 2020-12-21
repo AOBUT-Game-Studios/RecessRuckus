@@ -12,7 +12,7 @@ extents = Vector2( 3.08538, 10 )
 [node name="Node2D" type="Node2D"]
 
 [node name="TestCharacter" type="Node2D" parent="."]
-position = Vector2( 89.0955, 394.566 )
+position = Vector2( 483.661, 388.909 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="TestCharacter"]
 script = ExtResource( 1 )

@@ -12,10 +12,11 @@ var jumpRight = false
 var jumpArc = 15
 var jumpArcDef = 6
 
+func _physics_process(delta):
+	get_input(delta)
+	jump(delta)
+	velocity = move_and_slide(velocity)
 
-func _ready():
-	pass 
-	
 func get_input(delta):
 	velocity = Vector2()
 	if(Input.is_action_pressed("right") && !jump):
@@ -52,9 +53,15 @@ func jump(delta):
 	elif(jump):
 		jumpArc -= 0.2
 		velocity.y -= jumpArc * jumpSpeed
-		
+	
+	
+func stagger():
+	#when hit with an attack
+	pass
 
-func _physics_process(delta):
-	get_input(delta)
-	jump(delta)
-	velocity = move_and_slide(velocity)
+func fall():
+	#when hit into a fall down
+	pass
+	
+func dash():
+	pass
